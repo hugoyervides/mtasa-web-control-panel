@@ -1,0 +1,50 @@
+<meta>
+     <info author="ShadoXOy" type="script" name="Web Admin" description="WEB SERVER" />
+	 <include resource="ajax" />
+
+	 <!-- load lua files -->
+	 <script src="getinfo.lua" type="server"/>
+	 <script src="editserverinfo.lua" type="server"/>
+	 <script src="showmessage.lua" type="server"/>
+	 <script src="console.lua" type="server"/>
+	 
+	 <!-- export functions for http acces -->
+	 <export function='getServerInfo' http='true' />
+	 <export function='showMessage' http='true' />
+	 <export function='editServer' http='true' />
+
+	 <!-- add main web files -->
+	 <html src="index.html" />
+	 <html src="settings.html" />
+	 <html src="console.html"/>
+	 <html src="resources.html"/>
+
+	 <!-- add css files -->
+	 <html src="css/bootstrap.css" raw="true"/>
+	 <html src="css/all.css" raw="true"/>
+<!-- 	 <html src="css/index.css" raw="true"/>
+	 <html src="css/settings.css" raw="true"/> -->
+
+	 <!-- add js files -->
+	 <html src="js/monitor.js" raw="true"/>
+	 <html src="js/command.js" raw="true"/>
+	 <html src="js/settings.js" raw="true"/>
+	 <html src="js/sweetalert.min.js" raw="true"/>
+
+	 <!-- add fontawsome files -->
+	 <html src="webfonts/fa-brands-400.eot" raw="true"/>
+	 <html src="webfonts/fa-brands-400.svg" raw="true"/>
+	 <html src="webfonts/fa-brands-400.ttf" raw="true"/>
+	 <html src="webfonts/fa-brands-400.woff" raw="true"/>
+	 <html src="webfonts/fa-brands-400.woff2" raw="true"/>
+	 <html src="webfonts/fa-regular-400.eot" raw="true"/>
+	 <html src="webfonts/fa-regular-400.svg" raw="true"/>
+	 <html src="webfonts/fa-regular-400.ttf" raw="true"/>
+	 <html src="webfonts/fa-regular-400.woff" raw="true"/>
+	 <html src="webfonts/fa-regular-400.woff2" raw="true"/>
+	 <html src="webfonts/fa-solid-900.eot" raw="true"/>
+	 <html src="webfonts/fa-solid-900.svg" raw="true"/>
+	 <html src="webfonts/fa-solid-900.ttf" raw="true"/>
+	 <html src="webfonts/fa-solid-900.woff" raw="true"/>
+	 <html src="webfonts/fa-solid-900.woff2" raw="true"/>
+</meta>

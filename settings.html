@@ -1,0 +1,139 @@
+<*
+	if isGuestAccount(user) or not isObjectInACLGroup("user." ..getAccountName(user),aclGetGroup("Admin"))then
+	   httpRequestLogin();
+	else
+ *>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Admin Panel | Settings</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"> <!-- add bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="css/all.css"> <!-- add fontwasome css -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/settings.css">  --><!-- add css -->
+	<style type="text/css">
+		.edit{
+			width: 140px;
+		}
+		tr{
+			border: solid black 1px;
+		}
+		.table-dark{
+			background-color: rgb(52,58,64);
+		}
+		table{
+			text-align: center;
+			border-radius: 8px;
+		}
+		body{
+			background-color: rgb(242, 242, 242);
+	}
+	</style>
+ 	<* = exports.ajax:start(getResourceName(getThisResource())) *>
+</head>
+<body onload="retrieveData()">
+	<!-- navbar code -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container my-1">
+			<a class="navbar-brand" href="index.html">
+				<i class="fas fa-server"></i> Web Admin Panel
+			</a>
+			<ul class="navbar-nav mr-auto">
+	        	<li class="nav-item">
+	        		<a class="nav-link" href="index.html">Monitor</a>
+	      		</li>
+	      		<li class="nav-item active">
+	        		<a class="nav-link" href="settings.html">Settings <span class="sr-only">(current)</span></a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="resources.html"">Resources</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="player.html">Player List</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="#">Ban List</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="console.html">Console</a>
+	      		</li>
+	    	</ul>
+	    	<div style="max-width: 30%" class="my-2 my-lg-0 input-group">
+	    	    <input id="message" class="form-control mr-sm-2" type="text" placeholder="Message to Send">
+      			<button class="btn btn-success my-2 my-sm-0" type="submit" onclick="sendMessage()">Send!</button>
+      		</div>
+    	</div>
+	</nav>
+	<!-- rest of the page -->
+	<div class="container my-5">
+		<table class="table table-dark">
+		  <thead>
+		    <tr>
+		      <th scope="col">Name</th>
+		      <th scope="col">Value</th>
+		      <th scope="col">Acctions</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <td>Server Status</td>
+		      <td id="serverStatus">Running</td>
+		      <td>
+		      	<button type="button" class="edit btn btn-danger" onclick="editServerValue('shutdown')">Shutdown</button>
+		      </td>
+		    </tr>
+		    <tr>
+		      <td>FPS Limit</td>
+		      <td id="fpsLimit">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('fpsLimit')">Edit</button></td>
+		    </tr>
+		    <tr>
+		      <td>Server Password</td>
+		      <td id="serverPassword">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('serverPassword')">Edit</button></td>
+		    </tr>
+		    <tr>
+		      <td>Game Type</td>
+		      <td id="gameType">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('gameType')">Edit</button></td>
+		    </tr>
+		    <tr>
+		      <td>Max Players</td>
+		      <td id="maxPlayers">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('maxPlayers')">Edit</button></td>
+		    </tr>
+		    <tr>
+		      <td>Time</td>
+		      <td id="time">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('time')">Edit</button></td>
+		    </tr>
+		    <tr>
+		      <td>Weather</td>
+		      <td id="weather">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('weather')">Edit</button></td>
+		    </tr>
+		    <tr>
+		      <td>Gravitation</td>
+		      <td id="gravitation">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('gravitation')">Edit</button></td>
+		    </tr>
+		    <tr>
+		      <td>Game Speed</td>
+		      <td id="gameSpeed">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('gameSpeed')">Edit</button></td>
+		    </tr>
+		    <tr>
+		      <td>Wave Height</td>
+		      <td id="waveHeight">Retrieving Data...</td>
+		      <td><button type="button" class="edit btn btn-primary" onclick="editServerValue('waveHeight')">Edit</button></td>
+		    </tr>
+		  </tbody>
+		</table>
+	</div>
+	<script type="text/javascript" src="js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="js/command.js"></script>
+	<script type="text/javascript" src="js/settings.js"></script>
+</body>
+</html>
+<*
+end
+ *>

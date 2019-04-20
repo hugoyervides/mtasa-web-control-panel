@@ -1,0 +1,13 @@
+.mainPage{
+	text-align: center;
+}
+.card-header{
+	background-color: rgb(52,58,64);
+	color: white;
+}
+.card{
+	border-color: rgb(52,58,64);
+}
+body{
+	background-color: rgb(242, 242, 242);
+}

@@ -1,0 +1,155 @@
+<*
+	if isGuestAccount(user) or not isObjectInACLGroup("user." ..getAccountName(user),aclGetGroup("Admin"))then
+	   httpRequestLogin();
+	else
+ *>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web Admin Panel | Monitor</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"> <!-- add bootstrap css -->
+	<link rel="stylesheet" type="text/css" href="css/all.css"> <!-- add fontwasome css -->
+	<!-- <link rel="stylesheet" type="text/css" href="css/index.css">-->
+	<style type="text/css">
+		.mainPage{
+			text-align: center;
+		}
+		.card-header{
+			background-color: rgb(52,58,64);
+			color: white;
+		}
+		.card{
+			border-color: rgb(52,58,64);
+		}
+		body{
+			background-color: rgb(242, 242, 242);
+		}
+	</style>
+	<* = exports.ajax:start(getResourceName(getThisResource())) *>
+</head>
+<body onload="retrieveData()">
+	<!-- navbar code -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container my-1">
+			<a class="navbar-brand" href="index.html">
+				<i class="fas fa-server"></i> Web Admin Panel
+			</a>
+			<ul class="navbar-nav mr-auto">
+	        	<li class="nav-item active">
+	        		<a class="nav-link" href="index.html">Monitor <span class="sr-only">(current)</span></a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="settings.html">Settings</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="resources.html"">Resources</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="player.html">Player List</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="#">Ban List</a>
+	      		</li>
+	      		<li class="nav-item">
+	        		<a class="nav-link" href="console.html">Console</a>
+	      		</li>
+	    	</ul>
+	    	<div style="max-width: 30%" class="my-2 my-lg-0 input-group">
+	    	    <input id="message" class="form-control mr-sm-2" type="text" placeholder="Message to Send">
+      			<button class="btn btn-success my-2 my-sm-0" type="submit" onclick="sendMessage()">Send!</button>
+      		</div>
+    	</div>
+	</nav>
+	<!-- rest of the page -->
+	<div class="mainPage container my-5">
+		<div class="row">
+	    	<div class="col-sm-3 my-2">
+				<div class="card">
+			  		<div class="card-header">
+			    		<i class="fas fa-microchip"></i> Server Info
+			 		</div>
+			  		<div class="card-body">
+						<span id="serverInfo">Retrieving Data...</span>
+					</div>
+				</div>
+	    	</div>
+	    	<div class="col-sm-3 my-2">
+				<div class="card">
+			  		<div class="card-header">
+			    		<i class="fas fa-server"></i> Server Name
+			 		</div>
+			  		<div class="card-body">
+						<span id="serverName">Retrieving Data...</span>
+					</div>
+				</div>
+	    	</div>
+	    	<div class="col-sm-3 my-2">
+				<div class="card">
+			  		<div class="card-header">
+			    		<i class="fas fa-key"></i> Password
+			 		</div>
+			  		<div class="card-body">
+						<span id="serverPassword">Retrieving Data...</span>
+					</div>
+				</div>
+	    	</div>
+	    	<div class="col-sm-3 my-2">
+				<div class="card">
+			  		<div class="card-header">
+			    		<i class="fas fa-gamepad"></i> Game Type
+			 		</div>
+			  		<div class="card-body">
+						<span id="serverGame">Retrieving Data...</span>
+					</div>
+				</div>
+	    	</div>
+	    	<div class="col-sm-3 my-2">
+				<div class="card">
+			  		<div class="card-header">
+			    		<i class="fas fa-users"></i> Online Players
+			 		</div>
+			  		<div class="card-body">
+			  			<span id="onlinePlayers">Retrieving Data...</span>
+					</div>
+				</div>
+	    	</div>
+	    	<div class="col-sm-3 my-2">
+				<div class="card">
+			  		<div class="card-header">
+			    		<i class="fas fa-globe-americas"></i> Server IP
+			 		</div>
+			  		<div class="card-body">
+			  			<span id="serverIP">Retrieving Data...</span>
+					</div>
+				</div>
+	    	</div>
+	    	<div class="col-sm-3 my-2">
+				<div class="card">
+			  		<div class="card-header">
+			    		<i class="fas fa-tachometer-alt"></i> FPS Limit
+			 		</div>
+			  		<div class="card-body">
+			  			<span id="fpsLIMIT">Retrieving Data...</span>
+					</div>
+				</div>
+	    	</div>
+	    	<div class="col-sm-3 my-2">
+				<div class="card">
+			  		<div class="card-header">
+			    		<i class="fas fa-map-marked-alt"></i> Map Name
+			 		</div>
+			  		<div class="card-body">
+			  			<span id="mapName">Retrieving Data...</span>
+					</div>
+				</div>
+	    	</div>
+	   	</div>
+	</div>
+	<script type="text/javascript" src="js/sweetalert.min.js"></script>
+	<script type="text/javascript" src="js/monitor.js"></script>
+	<script type="text/javascript" src="js/command.js"></script>
+</body>
+</html>
+<*
+end
+ *>

@@ -1,0 +1,16 @@
+.edit{
+	width: 140px;
+}
+tr{
+	border: solid black 1px;
+}
+.table-dark{
+	background-color: rgb(52,58,64);
+
+table{
+	text-align: center;
+	border-radius: 8px;
+}
+body{
+	background-color: rgb(242, 242, 242);
+}
